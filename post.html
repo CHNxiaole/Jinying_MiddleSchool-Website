@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>发帖</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    h2 {
+      color: #333;
+      margin: 20px 0;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #555;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 2px solid #4CAF50;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+      transition: border 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      border: 2px solid #45a049;
+      outline: none;
+      box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>发帖</h2>
+  <form action="{{ url_for('post') }}" method="post">
+    <label for="title">文章标题：</label>
+    <input type="text" id="title" name="title" required><br>
+    <label for="content">文章内容：</label>
+    <textarea id="content" name="content" required></textarea><br>
+    <label for="tag">标签：</label>
+    <input type="text" id="tag" name="tag"><br>
+    <label for="category">分类：</label>
+    <select id="category" name="category">
+      <option value="学术">学术</option>
+      <option value="活动">活动</option>
+      <option value="生活">生活</option>
+    </select><br>
+    <input type="submit" value="发布文章" onclick="submitPost()">
+  </form>
+  <script>
+    function submitPost() {
+      alert('成功发布帖子！');
+    }
+  </script>
+</body>
+
+</html>
